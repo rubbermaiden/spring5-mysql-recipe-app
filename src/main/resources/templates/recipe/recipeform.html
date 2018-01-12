@@ -166,7 +166,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <textarea class="form-control" rows="3" th:field="*{directions}"></textarea></div>
+                                    <textarea class="form-control" rows="3" th:field="*{directions}">directions</textarea></div>
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
+                                    <input type="hidden" th:field="*{notes.id}"/>
+                                    <textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}">notes</textarea>
                                 </div>
                             </div>
                         </div>
