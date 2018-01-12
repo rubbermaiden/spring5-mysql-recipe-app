@@ -24,6 +24,8 @@ public class IndexController {
         log.debug("Getting Index page");
 
         model.addAttribute("recipes", recipeService.getRecipes());
+        model.addAttribute("controllerName", "IndexController");
+        model.addAttribute("actionName", "home");
 
         return "index";
     }

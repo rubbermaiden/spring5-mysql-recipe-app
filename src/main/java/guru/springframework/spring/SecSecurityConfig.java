@@ -62,34 +62,34 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     http
         .csrf().disable()
         .authorizeRequests()
-        .antMatchers("/login*","/login*", "/logout*", "/signin/**", "/signup/**", "/customLogin",
-            "/user/registration*", "/registrationConfirm*", "/expiredAccount*", "/registration*",
-            "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*", "/user/resetPassword*",
-            "/user/changePassword*", "/emailError*", "/resources/**","/old/user/registration*","/successRegister*","/qrcode*").permitAll()
-        .antMatchers("/invalidSession*").anonymous()
-        .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
-        .anyRequest().hasAuthority("READ_PRIVILEGE")
-        .and()
+          .antMatchers("/login*","/webjars/**", "/logout*", "/signin/**", "/signup/**", "/customLogin",
+              "/user/registration*", "/resources/**","/css/**","/registrationConfirm*", "/expiredAccount*", "/registration*",
+              "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*", "/user/resetPassword*",
+              "/user/changePassword*", "/emailError*", "/resources/**","/old/user/registration*","/successRegister*","/qrcode*").permitAll()
+          .antMatchers("/invalidSession*").anonymous()
+          .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
+          .anyRequest().hasAuthority("READ_PRIVILEGE")
+          .and()
         .formLogin()
-        .loginPage("/login")
-        .defaultSuccessUrl("/homepage.html")
-        .failureUrl("/login?error=true")
-        .successHandler(myAuthenticationSuccessHandler)
-        .failureHandler(authenticationFailureHandler)
-        .authenticationDetailsSource(authenticationDetailsSource)
-        .permitAll()
-        .and()
+          .loginPage("/login")
+          .defaultSuccessUrl("/index.html")
+          .failureUrl("/login?error=true")
+          .successHandler(myAuthenticationSuccessHandler)
+          .failureHandler(authenticationFailureHandler)
+          .authenticationDetailsSource(authenticationDetailsSource)
+          .permitAll()
+          .and()
         .sessionManagement()
-        .invalidSessionUrl("/invalidSession.html")
-        .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
-        .sessionFixation().none()
-        .and()
+          .invalidSessionUrl("/invalidSession.html")
+          .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
+          .sessionFixation().none()
+          .and()
         .logout()
-        .logoutSuccessHandler(myLogoutSuccessHandler)
-        .invalidateHttpSession(false)
-        .logoutSuccessUrl("/logout.html?logSucc=true")
-        .deleteCookies("JSESSIONID")
-        .permitAll();
+          .logoutSuccessHandler(myLogoutSuccessHandler)
+          .invalidateHttpSession(true)
+          .logoutSuccessUrl("/logout.html?logSucc=true")
+          .deleteCookies("JSESSIONID")
+          .permitAll();
     // @formatter:on
   }
 

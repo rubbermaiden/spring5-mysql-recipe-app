@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="common/header :: head"></head>
+</head>
+<body>
+<div th:replace="common/header :: top-navigation">...</div>
+
+<div class="container">
+    <div class="page-header" style="margin-top: 80px">
+        <h2>Lista de Receitas</h2>
+    </div>
+    <div>
+
+        <h1 class="alert alert-info" th:text="#{message.regSucc}">success</h1>
+        <br/>
+        <span th:if="${param.token != null}" th:text="#{token.message}">token</span>
+        <span th:text="${param.token}">token</span>
+        <br/>
+        <a class="btn btn-primary" th:href="@{/login}" th:text="#{label.login}">login</a>
+    </div>
+</div>
+<div th:replace="common/footer :: footer">...</div>
+</body>
+</html>

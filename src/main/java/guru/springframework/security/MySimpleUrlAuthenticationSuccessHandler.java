@@ -61,9 +61,10 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
       }
     }
     if (isUser) {
-      return "/homepage.html?user=" + authentication.getName();
+      return "/index.html?user=" + authentication.getName();
     } else if (isAdmin) {
-      return "/console.html";
+      //return "/console.html";
+      return "/index.html?user=" + authentication.getName();
     } else {
       throw new IllegalStateException();
     }

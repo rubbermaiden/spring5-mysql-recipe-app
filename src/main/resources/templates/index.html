@@ -10,7 +10,19 @@
     <div class="page-header" style="margin-top: 80px">
       <h2>Lista de Receitas</h2>
     </div>
-    <!--/*@thymesVar id="recipes" type="java.util.List"*/-->
+    <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.user.message}">user</div>
+
+    <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.admin.message}">admin</div>
+
+      <div th:text="${actionName}">actionName</div>
+      <br /> <br />
+    <a class="btn btn-default" th:href="@{/admin.html}" th:text="#{label.pages.admin}">admin</a>
+    <br /> <br />
+    <a th:href="@{/loggedUsers}" th:text="#{label.pages.users.message}">View logged in users</a>
+    <br />
+    <a th:href="@{/loggedUsersFromSessionRegistry}" th:text="#{label.pages.users.sessionregistry.message}">View logged in users</a>
+
+      <!--/*@thymesVar id="recipes" type="java.util.List"*/-->
     <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
     <div class="container-fluid" style="margin-top: 20px">
         <div class="row">

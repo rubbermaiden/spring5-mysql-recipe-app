@@ -1,6 +1,6 @@
 package guru.springframework.security;
 
-public interface ISecurityUserService {
+public interface SecurityUserService {
 
   String validatePasswordResetToken(long id, String token);
 
