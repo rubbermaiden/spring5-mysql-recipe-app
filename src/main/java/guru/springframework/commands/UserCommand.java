@@ -5,6 +5,7 @@ import guru.springframework.validation.ValidEmail;
 import guru.springframework.validation.ValidPassword;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.ColumnDefault;
 
 @PasswordMatches
 public class UserCommand {
@@ -28,6 +29,7 @@ public class UserCommand {
   @Size(min = 1)
   private String email;
 
+  @ColumnDefault("false")
   private boolean isUsing2FA;
 
   public String getEmail() {

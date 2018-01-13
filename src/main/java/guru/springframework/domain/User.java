@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.jboss.aerogear.security.otp.api.Base32;
 
 @Setter
@@ -37,6 +38,7 @@ public class User {
 
   private boolean enabled;
 
+  @ColumnDefault("false")
   private boolean isUsing2FA;
 
   private String secret;
