@@ -1,5 +1,6 @@
 package guru.springframework.domain;
 
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
+@Table(name = "unit_of_measure")
 public class UnitOfMeasure {
 
     @Id
