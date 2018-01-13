@@ -9,6 +9,7 @@ import guru.springframework.registration.OnRegistrationCompleteEvent;
 import guru.springframework.security.SecurityUserService;
 import guru.springframework.services.UserService;
 import guru.springframework.util.GenericResponse;
+import java.net.URLEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,8 +77,11 @@ public class RegistrationController {
             final User user = userService.getUser(token);
             System.out.println(user);
             if (user.isUsing2FA()) {
-                model.addAttribute("qr", userService.generateQRUrl(user));
-                return "redirect:/qrcode.html?lang=" + locale.getLanguage();
+                String qrcode = userService.generateQRUrl(user);
+                String encodedQrcode = URLEncoder.encode(qrcode, "UTF-8");
+                System.out.println(qrcode);
+                return "redirect:/qrcode.html?lang=" + locale.getLanguage() +
+                    "&qrcode=" + encodedQrcode;
             }
             userService.deleteVerificationToken(token);
             model.addAttribute("message", messages.getMessage("message.accountVerified", null, locale));
