@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @Setter
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
-@Table(name = "Ingredient")
+@Table(name = "ingredient")
 public class Ingredient {
 
     @Id
