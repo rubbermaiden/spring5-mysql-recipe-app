@@ -87,7 +87,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
         .logout()
           .logoutSuccessHandler(myLogoutSuccessHandler)
-          .invalidateHttpSession(false)
+          .invalidateHttpSession(true)
           .logoutSuccessUrl("/logout.html?logSucc=true")
           .deleteCookies("JSESSIONID")
           .permitAll();
