@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <head th:replace="common/header :: head"></head>
 
@@ -48,6 +48,10 @@
 
         <form name='f' action="login" method='POST' onsubmit="return validate();">
           <span id="welcometext">&nbsp;</span>
+
+          <input type="hidden"
+                 th:name="${_csrf.parameterName}"
+                 th:value="${_csrf.token}"/>
 
           <br /><br />
           <label class="col-sm-4" th:text="#{label.form.loginEmail}">Email</label>

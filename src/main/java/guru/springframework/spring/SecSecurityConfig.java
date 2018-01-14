@@ -61,11 +61,11 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(final HttpSecurity http) throws Exception {
     // @formatter:off
     http
-        .csrf().disable()
+        //.csrf().disable()
         .authorizeRequests()
           .antMatchers("/login*","/webjars/**", "/logout*", "/signin/**", "/signup/**", "/customLogin",
               "/user/registration*", "/resources/**","/css/**","/registrationConfirm*", "/expiredAccount*", "/registration*",
-              "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*", "/user/resetPassword*",
+              "/badUser*", "/user/resendRegistrationToken*" ,"/forgetPassword*", "/user/resetPassword*","/contact",
               "/user/changePassword*", "/emailError*", "/resources/**","/old/user/registration*","/successRegister*","/qrcode*").permitAll()
           .antMatchers("/invalidSession*").anonymous()
           .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*").hasAuthority("CHANGE_PASSWORD_PRIVILEGE")

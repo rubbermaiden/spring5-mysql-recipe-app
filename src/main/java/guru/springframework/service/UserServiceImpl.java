@@ -110,6 +110,10 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public void createVerificationTokenForUser(final User user, final String token) {
+    final VerificationToken verificationToken = tokenRepository.findByUser(user);
+    if (verificationToken != null) {
+      tokenRepository.delete(verificationToken);
+    }
     final VerificationToken myToken = new VerificationToken(token, user);
     tokenRepository.save(myToken);
   }
@@ -124,6 +128,10 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public void createPasswordResetTokenForUser(final User user, final String token) {
+    final PasswordResetToken passwordToken = passwordTokenRepository.findByUser(user);
+    if (passwordToken != null) {
+      passwordTokenRepository.delete(passwordToken);
+    }
     final PasswordResetToken myToken = new PasswordResetToken(token, user);
     passwordTokenRepository.save(myToken);
   }

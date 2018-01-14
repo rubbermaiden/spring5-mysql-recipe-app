@@ -29,4 +29,14 @@ public class IndexController {
 
         return "index";
     }
+
+    @RequestMapping("/contact")
+    public String getContactPage(Model model) {
+        log.debug("Getting Contact page");
+
+        model.addAttribute("controllerName", "IndexController");
+        model.addAttribute("actionName", "home");
+
+        return "contact";
+    }
 }
