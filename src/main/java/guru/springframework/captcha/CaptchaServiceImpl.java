@@ -1,7 +1,5 @@
-package guru.springframework.services;
+package guru.springframework.captcha;
 
-import guru.springframework.captcha.CaptchaSettings;
-import guru.springframework.captcha.GoogleResponse;
 import guru.springframework.error.ReCaptchaInvalidException;
 import guru.springframework.error.ReCaptchaUnavailableException;
 import java.net.URI;

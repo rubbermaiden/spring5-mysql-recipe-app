@@ -1,4 +1,4 @@
-package guru.springframework.services;
+package guru.springframework.service;
 
 import guru.springframework.commands.UserCommand;
 import guru.springframework.domain.PasswordResetToken;
@@ -10,6 +10,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public interface UserService {
+  String TOKEN_INVALID = "invalidToken";
+  String TOKEN_EXPIRED = "expired";
+  String TOKEN_VALID = "valid";
 
   User registerNewUserAccount(UserCommand accountDto) throws UserAlreadyExistException;
 

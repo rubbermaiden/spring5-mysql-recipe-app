@@ -7,7 +7,7 @@ import guru.springframework.domain.VerificationToken;
 import guru.springframework.error.InvalidOldPasswordException;
 import guru.springframework.registration.OnRegistrationCompleteEvent;
 import guru.springframework.security.SecurityUserService;
-import guru.springframework.services.UserService;
+import guru.springframework.service.UserService;
 import guru.springframework.util.GenericResponse;
 import java.net.URLEncoder;
 import org.slf4j.Logger;

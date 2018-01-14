@@ -1,4 +1,4 @@
-package guru.springframework.services;
+package guru.springframework.captcha;
 
 
 import com.google.common.cache.CacheBuilder;
@@ -7,7 +7,7 @@ import com.google.common.cache.LoadingCache;
 import java.util.concurrent.TimeUnit;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("reCaptchaAttemptService")
 public class ReCaptchaAttemptServiceImpl implements ReCaptchaAttemptService{
   private final int MAX_ATTEMPT = 4;
   private LoadingCache<String, Integer> attemptsCache;

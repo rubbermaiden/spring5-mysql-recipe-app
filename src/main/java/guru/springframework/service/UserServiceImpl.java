@@ -1,4 +1,4 @@
-package guru.springframework.services;
+package guru.springframework.service;
 
 import guru.springframework.commands.UserCommand;
 import guru.springframework.domain.PasswordResetToken;

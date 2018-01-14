@@ -5,6 +5,7 @@ import guru.springframework.validation.PasswordMatchesValidator;
 import java.util.Locale;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.servlet.LocaleResolver;
@@ -18,7 +19,7 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
-
+@ComponentScan(basePackages = { "guru.springframework.controllers" })
 @EnableWebMvc
 public class MvcConfig extends WebMvcConfigurerAdapter {
 

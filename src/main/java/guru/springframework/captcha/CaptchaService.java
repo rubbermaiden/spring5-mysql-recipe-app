@@ -1,4 +1,4 @@
-package guru.springframework.services;
+package guru.springframework.captcha;
 
 import guru.springframework.error.ReCaptchaInvalidException;
 

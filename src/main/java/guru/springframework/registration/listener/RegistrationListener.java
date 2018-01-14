@@ -3,7 +3,7 @@ package guru.springframework.registration.listener;
 
 import guru.springframework.domain.User;
 import guru.springframework.registration.OnRegistrationCompleteEvent;
-import guru.springframework.services.UserService;
+import guru.springframework.service.UserService;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;

@@ -113,6 +113,9 @@
                     else if (data.responseJSON.error == "UserAlreadyExist") {
                         $("#emailError").show().html(data.responseJSON.message);
                     }
+                    else if (data.responseJSON.error == "InvaliduserCommand") {
+                      $("#globalError").show().html(data.responseJSON.message);
+                    }
                     else if (data.responseJSON.error.indexOf("InternalError") > -1) {
                         window.location.href = serverContext + "login?message=" + data.responseJSON.message;
                     }
