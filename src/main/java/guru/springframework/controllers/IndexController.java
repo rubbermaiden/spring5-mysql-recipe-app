@@ -35,8 +35,18 @@ public class IndexController {
         log.debug("Getting Contact page");
 
         model.addAttribute("controllerName", "IndexController");
-        model.addAttribute("actionName", "home");
+        model.addAttribute("actionName", "contato");
 
         return "contact";
+    }
+
+    @RequestMapping("/console")
+    public String getConsolePage(Model model) {
+        log.debug("Getting Console page");
+
+        model.addAttribute("controllerName", "IndexController");
+        model.addAttribute("actionName", "console");
+
+        return "console";
     }
 }

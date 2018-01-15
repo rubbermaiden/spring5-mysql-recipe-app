@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.authentication.FormAuthConfig;
+import com.jayway.restassured.filter.session.SessionFilter;
 import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
 import guru.springframework.Spring5RecipeAppApplication;
@@ -43,7 +44,6 @@ public class ChangePasswordIntegrationTest {
 
   private FormAuthConfig formConfig;
   private String URL;
-
   //
 
   @Before
@@ -73,7 +73,7 @@ public class ChangePasswordIntegrationTest {
   public void givenNotAuthenticatedUser_whenLoggingIn_thenCorrect() {
     final RequestSpecification request = RestAssured.given().auth().form("test@test.com", "test", formConfig);
 
-    request.when().get("/console.html").then().assertThat().statusCode(200).and().body(containsString("home"));
+    request.when().get("/console.html").then().assertThat().statusCode(200).and().body(containsString("Home"));
   }
 
   @Test
@@ -90,7 +90,6 @@ public class ChangePasswordIntegrationTest {
     final Map<String, String> params = new HashMap<String, String>();
     params.put("oldPassword", "test");
     params.put("newPassword", "newTest&12");
-
     final Response response = request.with().queryParameters(params).post(URL);
 
     assertEquals(200, response.statusCode());
