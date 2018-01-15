@@ -35,6 +35,9 @@
       <ul class="nav navbar-nav">
         <li th:class="${actionName == ''} ? 'active' : ''" ><a href="/">Home</a></li>
         <li th:class="${actionName == 'getContactPage'} ? 'active' : ''" ><a href="/contact">Contact</a></li>
+        <li th:class="${actionName == 'getContactPage'} ? 'active' : ''" ><a href="/registration.html" th:text="#{label.form.loginSignUp}">Signup</a></li>
+        <li th:class="${actionName == 'getContactPage'} ? 'active' : ''" ><a href="/registrationCaptcha.html" th:text="#{label.form.loginSignUpCaptcha}">Captcha Signup</a></li>
+        <li th:class="${actionName == 'getContactPage'} ? 'active' : ''" ><a href="/forgetPassword.html" th:text="#{message.resetPassword}">Reset Password</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li sec:authorize="isAuthenticated()"><p class="navbar-btn">
