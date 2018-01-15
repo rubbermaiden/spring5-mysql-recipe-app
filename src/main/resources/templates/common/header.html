@@ -33,8 +33,8 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li th:class="${actionName == 'getIndexPage'} ? 'active' : ''" ><a href="/">Home</a></li>
-        <li th:class="${actionName == 'contact'} ? 'active' : ''" ><a href="/contact">Contact</a></li>
+        <li th:class="${actionName == ''} ? 'active' : ''" ><a href="/">Home</a></li>
+        <li th:class="${actionName == 'getContactPage'} ? 'active' : ''" ><a href="/contact">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li sec:authorize="isAuthenticated()"><p class="navbar-btn">
@@ -70,7 +70,7 @@
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li th:class="${actionName == 'getIndexPage' or actionName == 'admin'} ? 'active' : ''" ><a href="/index/">Recipes</a></li>
-        <li th:class="${actionName == 'newpage'} ? 'active' : ''"><a href="/recipe/new">New Recipe</a></li>
+        <li th:class="${actionName == 'newRecipe'} ? 'active' : ''"><a href="/recipe/new">New Recipe</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li sec:authorize="isAuthenticated()"><p class="navbar-btn">

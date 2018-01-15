@@ -35,7 +35,7 @@ public class IndexController {
         log.debug("Getting Contact page");
 
         model.addAttribute("controllerName", "IndexController");
-        model.addAttribute("actionName", "contato");
+        model.addAttribute("actionName", "contact");
 
         return "contact";
     }

@@ -5,6 +5,7 @@ import guru.springframework.commands.UserCommand;
 import guru.springframework.domain.User;
 import guru.springframework.domain.VerificationToken;
 import guru.springframework.error.InvalidOldPasswordException;
+import guru.springframework.password.OnPasswordResetCompleteEvent;
 import guru.springframework.registration.OnRegistrationCompleteEvent;
 import guru.springframework.security.SecurityUserService;
 import guru.springframework.service.UserService;
@@ -110,12 +111,7 @@ public class RegistrationController {
     @ResponseBody
     public GenericResponse resetPassword(final HttpServletRequest request, @RequestParam("email") final String userEmail) {
         final User user = userService.findUserByEmail(userEmail);
-        if (user != null) {
-            final String token = UUID.randomUUID()
-                    .toString();
-            userService.createPasswordResetTokenForUser(user, token);
-            mailSender.send(constructResetTokenEmail(getAppUrl(request), request.getLocale(), token, user));
-        }
+        eventPublisher.publishEvent(new OnPasswordResetCompleteEvent(user, request.getLocale(), getAppUrl(request)));
         return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
     }
 
@@ -169,12 +165,6 @@ public class RegistrationController {
         final String confirmationUrl = contextPath + "/registrationConfirm.html?token=" + newToken.getToken();
         final String message = messages.getMessage("message.resendToken", null, locale);
         return constructEmail("Resend Registration Token", message + " \r\n" + confirmationUrl, user);
-    }
-
-    private SimpleMailMessage constructResetTokenEmail(final String contextPath, final Locale locale, final String token, final User user) {
-        final String url = contextPath + "/user/changePassword?id=" + user.getId() + "&token=" + token;
-        final String message = messages.getMessage("message.resetPassword", null, locale);
-        return constructEmail("Reset Password", message + " \r\n" + url, user);
     }
 
     private SimpleMailMessage constructEmail(String subject, String body, User user) {
