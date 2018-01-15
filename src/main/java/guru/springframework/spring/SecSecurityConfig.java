@@ -62,6 +62,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     // @formatter:off
     http
         //.csrf().disable()
+        .requiresChannel().antMatchers("/login*").requiresSecure().and()
+        //.requiresChannel().anyRequest().requiresInsecure().and()
         .authorizeRequests()
           .antMatchers("/login*","/webjars/**", "/logout*", "/signin/**", "/signup/**", "/customLogin",
               "/user/registration*", "/resources/**","/css/**","/registrationConfirm*", "/expiredAccount*", "/registration*",
