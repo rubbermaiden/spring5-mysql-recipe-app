@@ -11,7 +11,7 @@
 
   </appender>
 
-  <logger name="guru.springframework" level="WARN" />
+  <logger name="borracha.springframework" level="WARN" />
 
   <!-- to view SQL statements, change to DEBUG -->
   <logger name="org.hibernate.SQL" level="WARN" />
