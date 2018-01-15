@@ -96,12 +96,12 @@
 
         function register(event) {
             event.preventDefault();
-            $("#send").attr("disabled","true");
+            $("#send").prop("disabled",true);
             $(".alert").html("").hide();
             $(".error-list").html("");
             if ($("#password").val() != $("#matchPassword").val()) {
               $("#globalError").show().html(/*[[#{PasswordMatches.user}]]*/);
-              $("#send").attr("disabled","false");
+              $("#send").prop("disabled",false);
               return;
             }
             var formData = $('form').serialize();
@@ -112,7 +112,7 @@
 
             })
                 .fail(function (data) {
-                  $("#send").attr("disabled","false");
+                  $("#send").prop("disabled",false);
                   if (data.responseJSON.error.indexOf("MailError") > -1) {
                         window.location.href = serverContext + "emailError.html";
                   }
