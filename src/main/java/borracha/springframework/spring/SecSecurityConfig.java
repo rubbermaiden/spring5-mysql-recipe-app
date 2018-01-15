@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -83,9 +84,11 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
           .permitAll()
           .and()
         .sessionManagement()
+            .sessionAuthenticationErrorUrl("/sessionAuthenticationError.html")
+          .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
           .invalidSessionUrl("/invalidSession.html")
           .maximumSessions(1).sessionRegistry(sessionRegistry()).and()
-          .sessionFixation().none()
+          .sessionFixation().migrateSession()
           .and()
         .logout()
           .logoutSuccessHandler(myLogoutSuccessHandler)

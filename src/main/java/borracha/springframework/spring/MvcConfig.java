@@ -39,7 +39,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     registry.addViewController("/registrationCaptcha.html");
     registry.addViewController("/logout.html");
     registry.addViewController("/homepage.html");
-    registry.addViewController("/expiredAccount.html");
+    registry.addViewController("/sessionAuthenticationError.html");
     registry.addViewController("/badUser.html");
     registry.addViewController("/emailError.html");
     registry.addViewController("/home.html");
